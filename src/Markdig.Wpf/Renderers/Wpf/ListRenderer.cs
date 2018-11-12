@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Documents;
 using Markdig.Annotations;
 using Markdig.Syntax;
+using Markdig.Wpf;
 
 namespace Markdig.Renderers.Wpf
 {
@@ -14,6 +15,7 @@ namespace Markdig.Renderers.Wpf
         protected override void Write([NotNull] WpfRenderer renderer, [NotNull] ListBlock listBlock)
         {
             var list = new List();
+            list.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.ListStyleKey);
 
             if (listBlock.IsOrdered)
             {
@@ -35,6 +37,8 @@ namespace Markdig.Renderers.Wpf
             {
                 var listItemBlock = (ListItemBlock)item;
                 var listItem = new ListItem();
+                listItem.SetResourceReference(FrameworkContentElement.StyleProperty, Styles.ListItemStyleKey);
+
                 renderer.Push(listItem);
                 renderer.WriteChildren(listItemBlock);
                 renderer.Pop();

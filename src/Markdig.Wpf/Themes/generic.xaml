@@ -6,11 +6,14 @@
     <Setter Property="FontFamily" Value="Calibri" />
     <Setter Property="TextAlignment" Value="Left" />
   </Style>
-  <Style TargetType="{x:Type List}">
+  <Style TargetType="{x:Type List}" x:Key="{x:Static markdig:Styles.ListStyleKey}">
     <Setter Property="Margin" Value="40,0,0,0" />
     <Setter Property="Padding" Value="0,0,0,0" />
   </Style>
-  <Style TargetType="{x:Type Paragraph}" x:Key="{x:Static markdig:Styles.CodeBlockStyleKey}">
+    <Style TargetType="{x:Type ListItem}" x:Key="{x:Static markdig:Styles.ListItemStyleKey}">
+        <!-- no changes -->
+    </Style>
+    <Style TargetType="{x:Type Paragraph}" x:Key="{x:Static markdig:Styles.CodeBlockStyleKey}">
     <Setter Property="Background" Value="#ffd3d3d3" />
     <Setter Property="FontFamily" Value="Consolas, Lucida Sans Typewriter, Courier New" />
   </Style>
